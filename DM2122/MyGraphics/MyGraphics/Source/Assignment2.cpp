@@ -104,33 +104,48 @@ void Assignment2::Init()
 	
 	//**************************************************************************************HEAD
 	meshList[GEO_HEAD] = MeshBuilder::GenerateSphere("Head", Color(0.8, 1, 0), 18, 36);
-    meshList[GEO_HEAD]->material.kAmbient.Set(0.5, 0.5, 0.5);
-    meshList[GEO_HEAD]->material.kDiffuse.Set(0.4, 0.4, 0.4);
-    meshList[GEO_HEAD]->material.kSpecular.Set(0.8, 0.8, 0.8);
-    meshList[GEO_HEAD]->material.kShininess = 0.9;
+	meshList[GEO_HEAD]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_HEAD]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_HEAD]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_HEAD]->material.kShininess = 0.9;
 
 	//**************************************************************************************COLLAR
-	meshList[GEO_COLLAR] = MeshBuilder::GenerateTorus("Collar",18,36, 10, 2, Color(0.8, 0, 0.6));
-    meshList[GEO_COLLAR]->material.kAmbient.Set(0.5, 0.5, 0.5);
-    meshList[GEO_COLLAR]->material.kDiffuse.Set(0.4, 0.4, 0.4);
-    meshList[GEO_COLLAR]->material.kSpecular.Set(0.8, 0.8, 0.8);
-    meshList[GEO_COLLAR]->material.kShininess = 0.9;
+	meshList[GEO_COLLAR] = MeshBuilder::GenerateTorus("Collar",18,36, 10, 3, Color(0.8, 0, 0.6));
+	meshList[GEO_COLLAR]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_COLLAR]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_COLLAR]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_COLLAR]->material.kShininess = 0.9;
 
     //*************************************************************************************BODY
 
     meshList[GEO_BODY] = MeshBuilder::GenerateCylinder("Body",Color(0, 0.1, 0.6), 36,false);
-    meshList[GEO_BODY]->material.kAmbient.Set(0.5, 0.5, 0.5);
-    meshList[GEO_BODY]->material.kDiffuse.Set(0.4, 0.4, 0.4);
-    meshList[GEO_BODY]->material.kSpecular.Set(0.8, 0.8, 0.8);
-    meshList[GEO_BODY]->material.kShininess = 0.9;
+	meshList[GEO_BODY]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_BODY]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_BODY]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_BODY]->material.kShininess = 0.9;
 
     //*************************************************************************************BODY
 
     meshList[GEO_BODY_SIDE] = MeshBuilder::GenerateHemisphere("Body_Side", Color(0, 0.1, 0.6), 18, 36);
-    meshList[GEO_BODY_SIDE]->material.kAmbient.Set(0.5, 0.5, 0.5);
-    meshList[GEO_BODY_SIDE]->material.kDiffuse.Set(0.4, 0.4, 0.4);
-    meshList[GEO_BODY_SIDE]->material.kSpecular.Set(0.8, 0.8, 0.8);
-    meshList[GEO_BODY_SIDE]->material.kShininess = 0.9;
+	meshList[GEO_BODY_SIDE]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_BODY_SIDE]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_BODY_SIDE]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_BODY_SIDE]->material.kShininess = 0.9;
+
+	//**************************************************************************************ELBOW
+	meshList[GEO_ELBOW] = MeshBuilder::GenerateSphere("Elbow", Color(0, 0.1, 0.6), 18, 36);
+	meshList[GEO_ELBOW]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_ELBOW]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_ELBOW]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_ELBOW]->material.kShininess = 0.9;
+
+	//*************************************************************************************FINGER
+
+	meshList[GEO_FINGER] = MeshBuilder::GenerateHemisphere("Finger", Color(0.8, 1, 0), 18, 36);
+	meshList[GEO_FINGER]->material.kAmbient.Set(0.6, 0.6, 0.6);
+	meshList[GEO_FINGER]->material.kDiffuse.Set(0.6, 0.6, 0.6);
+	meshList[GEO_FINGER]->material.kSpecular.Set(0.4, 0.4, 0.4);
+	meshList[GEO_FINGER]->material.kShininess = 0.9;
 
     //*************************************************************************************MTX44 STUFF
 	Mtx44 projection;
@@ -224,7 +239,7 @@ void Assignment2::Render()
 	modelStack.PushMatrix();
 
     modelStack.Translate(0, 24, 0);
-	modelStack.Scale(0.5, 0.2, 0.3);
+	modelStack.Scale(0.5, 0.4, 0.3);
 	
 	RenderMesh(meshList[GEO_COLLAR], true);
 
@@ -251,7 +266,7 @@ void Assignment2::Render()
 
     modelStack.Translate(4.8f, 19, 0);
     modelStack.Rotate(90.f, 0.f, 0.f, 1.f);
-    modelStack.Scale(5, 1.5, 4);
+    modelStack.Scale(5, 2, 4);
     RenderMesh(meshList[GEO_BODY_SIDE], true);
 
 
@@ -264,7 +279,7 @@ void Assignment2::Render()
 
     modelStack.Translate(-4.8f, 19, 0);
     modelStack.Rotate(270.f, 0.f, 0.f, 1.f);
-    modelStack.Scale(5, 1.5, 4);
+    modelStack.Scale(5, 2, 4);
     RenderMesh(meshList[GEO_BODY_SIDE], true);
 
 
@@ -273,13 +288,14 @@ void Assignment2::Render()
 
     //**********************************************************************************************Render ARMS
 
+	//****************************************************ARM (upper segment)
     modelStack.PushMatrix();
 
     ////Transformation stuff
 
-    modelStack.Translate(6.f, 19, 0);
-    modelStack.Rotate(40.f, 1.f, 0.f, 0.f);
-    modelStack.Scale(1.5, 10, 1.5);
+    modelStack.Translate(6.5f, 20, 0);
+    modelStack.Rotate(60.f, 40.f, 0.f, 0.f);
+    modelStack.Scale(1.5, 3, 1.5);
     RenderMesh(meshList[GEO_BODY], true);
 
 
@@ -288,14 +304,128 @@ void Assignment2::Render()
     modelStack.PushMatrix();
 
     ////Transformation stuff
-    modelStack.Rotate(25.f, 0.f, 0.f, 1.f);
-    modelStack.Translate(2.f, 19, 0);
     
-    modelStack.Scale(1.5, 10, 1.5);
+    modelStack.Translate(-6.f, 20, 0);
+	modelStack.Rotate(50.f, 0.f, 0.f, 1.f);
+    modelStack.Scale(1.5, 3, 1.5);
     RenderMesh(meshList[GEO_BODY], true);
 
 
     modelStack.PopMatrix();
+	//**************************************************** close ARM (upper segment)
+
+	//****************************************************RENDER ELBOW
+
+	//RIGHT HAND DE ELBOW
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(6.5f, 21.7f, 3);
+	modelStack.Scale(1.5f, 1.5f, 1.5f);
+
+	RenderMesh(meshList[GEO_ELBOW], true);
+
+
+	modelStack.PopMatrix();
+
+	//LEFT HAND DE ELBOW
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(-8.f, 21.7f, 0);
+	modelStack.Scale(1.4f, 1.4f, 1.4f);
+
+	RenderMesh(meshList[GEO_ELBOW], true);
+
+
+	modelStack.PopMatrix();
+
+	//**************************************************** close ELBOW 
+
+	//****************************************************ARM (lower segment)
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(6.5f, 22., 3.3);
+	modelStack.Rotate(60.f, 40.f, 0.f, 0.f);
+	modelStack.Scale(1.5, 3, 1.5);
+	RenderMesh(meshList[GEO_BODY], true);
+
+
+	modelStack.PopMatrix();
+	//ARM 2
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(-8.4f, 22., 0);
+	modelStack.Rotate(50.f, 0.f, 0.f, 1.f);
+	modelStack.Scale(1.5, 3, 1.5);
+	RenderMesh(meshList[GEO_BODY], true);
+
+
+	modelStack.PopMatrix();
+	//**************************************************** close ARM (lower segment)
+	
+	//**************************************************** RENDER HANDS
+
+	//************************************* RENDER PALMS
+
+	modelStack.PushMatrix();
+
+	modelStack.Translate(6.5, 23.3, 5.6);
+	modelStack.Scale(1.6f, 1.6f, 1.6f);
+
+	RenderMesh(meshList[GEO_HEAD], true);
+
+	modelStack.PopMatrix();
+
+	//PALM 2
+
+	modelStack.PushMatrix();
+
+	modelStack.Translate(-10.8f, 24.2, 0);
+	modelStack.Scale(1.6f, 1.6f, 1.6f);
+
+	RenderMesh(meshList[GEO_HEAD], true);
+
+	modelStack.PopMatrix();
+
+	//************************************* CLOSE PALMS
+
+	//************************************* CLOSE Fingers
+	
+	//*****SET 1
+	//FINGER 1
+	modelStack.PushMatrix();
+
+	modelStack.Translate(-10.f, 25.f, 0);
+	modelStack.Rotate(180.f, 1.f,0.f,0.f);
+	modelStack.Scale(0.6f, 1.7f, 0.6f);
+	RenderMesh(meshList[GEO_FINGER], true);
+
+	modelStack.PopMatrix();
+	//Finger 2
+	modelStack.PushMatrix();
+
+	modelStack.Translate(-10.f, 25.f, 0);
+	modelStack.Rotate(180.f, 1.f, 0.f, 0.f);
+	modelStack.Scale(0.6f, 1.7f, 0.6f);
+	RenderMesh(meshList[GEO_FINGER], true);
+
+	modelStack.PopMatrix();
+	//*****End of SET 1
+
+	//*****SET 2
+
+	//*****End of SET 2
+
+	//************************************* CLOSE Fingers
+
+	//**************************************************** CLOSE HANDS
 
     //**********************************************************************************************Render ARMS
 
@@ -305,8 +435,8 @@ void Assignment2::Render()
 
     ////Transformation stuff
     
-    modelStack.Translate(2.5f, 7, 0);
-    modelStack.Scale(3, 8, 3);
+    modelStack.Translate(2.5f, 9.5, 0);
+    modelStack.Scale(3, 6, 3);
     RenderMesh(meshList[GEO_BODY], true);
 
 
@@ -316,14 +446,43 @@ void Assignment2::Render()
 
     ////Transformation stuff
 
-    modelStack.Translate(-2.5f, 7, 0);
-    modelStack.Scale(3, 8, 3);
+    modelStack.Translate(-2.5f, 9.5, 0);
+    modelStack.Scale(3, 6, 3);
     RenderMesh(meshList[GEO_BODY], true);
 
 
     modelStack.PopMatrix();
 
     //**********************************************************************************************Pop Legs
+	//****************************************************RENDER FEET
+
+	//RIGHT HAND DE ELBOW
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(3.f, 8.7f, 0.8);
+	modelStack.Scale(3.f, 2.5f, 4.0f);
+
+	RenderMesh(meshList[GEO_ELBOW], true);
+
+
+	modelStack.PopMatrix();
+
+	//LEFT HAND DE ELBOW
+	modelStack.PushMatrix();
+
+	////Transformation stuff
+
+	modelStack.Translate(-3.f, 8.7f, 0.8);
+	modelStack.Scale(3.f, 2.5f, 4.0f);
+
+	RenderMesh(meshList[GEO_ELBOW], true);
+
+
+	modelStack.PopMatrix();
+
+	//**************************************************** close FEET
 	modelStack.PushMatrix();
 
 	//Transformation stuff
@@ -347,7 +506,7 @@ void Assignment2::Render()
 
 	modelStack.PushMatrix();
 
-	modelStack.Scale(100, 0, 100);
+	modelStack.Scale(200, 0, 200);
 	//to do: transformation code here
 	RenderMesh(meshList[GEO_QUAD], false);
 

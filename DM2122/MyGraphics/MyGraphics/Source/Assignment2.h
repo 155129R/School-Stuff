@@ -25,6 +25,9 @@ class Assignment2 : public Scene
         GEO_BODY,
         GEO_BODY_SIDE,
 
+		GEO_ELBOW,
+		GEO_FINGER,		
+
 		NUM_GEOMETRY,
 
 	};
