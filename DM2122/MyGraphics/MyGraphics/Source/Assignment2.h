@@ -3,8 +3,8 @@
 
 #include "Material.h"
 #include "Scene.h"
-#include "Camera.h"
-//#include "Camera2.h"
+//#include "Camera.h"
+#include "Camera2.h"
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "Light.h"
@@ -12,22 +12,28 @@
 class Assignment2 : public Scene
 {
 	enum GEOMETRY_TYPE
-	{
-		GEO_AXES,
-		GEO_QUAD,
-		GEO_CUBE,
-		GEO_CIRCLE,
-		GEO_RING,
-		GEO_SPHERE,
-		GEO_HEAD,
-		GEO_LIGHTBALL,
-		GEO_COLLAR,
+    {
+        GEO_AXES,
+        GEO_QUAD,
+        GEO_CUBE,
+        GEO_CIRCLE,
+        GEO_RING,
+        GEO_SPHERE,
+        GEO_HEAD,
+        GEO_LIGHTBALL,
+        GEO_COLLAR,
         GEO_BODY,
         GEO_BODY_SIDE,
+        GEO_ELBOW,
+        GEO_FINGER,
+        GEO_EYEBALL,
+        GEO_PUPILS,
+        GEO_ANTENNA_BODY,
 
-		GEO_ELBOW,
-		GEO_FINGER,		
+        GEO_GUN_HANDLE,
+        GEO_GUN_BODY,
 
+        GEO_ALIENMOON,
 		NUM_GEOMETRY,
 
 	};
@@ -82,9 +88,10 @@ private:
 	unsigned m_programID;
 	unsigned m_parameters[U_TOTAL];
 
-	float rotateAngle;
-
-	Camera camera;
+	float rotateBodyAngle;
+    float translateBody_X, translateBody_Y, translateBody_Z, feetRot_Z;
+    float gunBodyColor_R, gunBodyColor_G, gunBodyColor_B;
+	Camera2 camera;
 
 
 	MS modelStack, viewStack, projectionStack;

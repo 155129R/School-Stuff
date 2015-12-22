@@ -215,6 +215,7 @@ Mesh* MeshBuilder::GenerateCircle(const std::string &meshName, Color color, unsi
     v.color = color;
     vertex_buffer_data.push_back(v);
 
+
     for (unsigned int slice = 0; slice <= numSlices; ++slice){
 
         index_buffer_data.push_back(slice);

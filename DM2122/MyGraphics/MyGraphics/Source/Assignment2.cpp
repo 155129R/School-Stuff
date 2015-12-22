@@ -80,12 +80,18 @@ void Assignment2::Init()
 
 	// Get a handle for our "MVP" uniform
 	m_parameters[U_MVP] = glGetUniformLocation(m_programID, "MVP");
+    gunBodyColor_B, gunBodyColor_G, gunBodyColor_R = 0;
+	//variable to rotate body
+	rotateBodyAngle = 0;
 
-	//variable to rotate geometry
-	rotateAngle = 0;
+    //angler to rotate feet
+    feetRot_Z = 0;
+    
+    //translate body
+    translateBody_X, translateBody_Y, translateBody_Z = 0;
 
 	//Initialize camera settings
-	camera.Init(Vector3(4, 0, 3), Vector3(0, 0, 0), Vector3(0, 1, 0));
+    camera.Init(Vector3(25, 55, 50), Vector3(0, 0, 3), Vector3(0, 1, 0));
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 	
@@ -97,24 +103,21 @@ void Assignment2::Init()
 	
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("LightBall", (1, 1, 1), 18, 36);
 	
-	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("FLOOR", Color(0.6, 0.6, 0.60));
-	
-	
-	
+	meshList[GEO_ALIENMOON] = MeshBuilder::GenerateCircle("AlienMoon", Color(0.6, 0.6, 0.60),18);
 	
 	//**************************************************************************************HEAD
 	meshList[GEO_HEAD] = MeshBuilder::GenerateSphere("Head", Color(0.8, 1, 0), 18, 36);
-	meshList[GEO_HEAD]->material.kAmbient.Set(0.6, 0.6, 0.6);
-	meshList[GEO_HEAD]->material.kDiffuse.Set(0.6, 0.6, 0.6);
-	meshList[GEO_HEAD]->material.kSpecular.Set(0.4, 0.4, 0.4);
-	meshList[GEO_HEAD]->material.kShininess = 0.9;
+    meshList[GEO_HEAD]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_HEAD]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_HEAD]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_HEAD]->material.kShininess = 0.78125;
 
 	//**************************************************************************************COLLAR
 	meshList[GEO_COLLAR] = MeshBuilder::GenerateTorus("Collar",18,36, 10, 3, Color(0.8, 0, 0.6));
-	meshList[GEO_COLLAR]->material.kAmbient.Set(0.6, 0.6, 0.6);
-	meshList[GEO_COLLAR]->material.kDiffuse.Set(0.6, 0.6, 0.6);
-	meshList[GEO_COLLAR]->material.kSpecular.Set(0.4, 0.4, 0.4);
-	meshList[GEO_COLLAR]->material.kShininess = 0.9;
+    meshList[GEO_COLLAR]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_COLLAR]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_COLLAR]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_COLLAR]->material.kShininess = 0.78125;
 
     //*************************************************************************************BODY
 
@@ -142,14 +145,42 @@ void Assignment2::Init()
 	//*************************************************************************************FINGER
 
 	meshList[GEO_FINGER] = MeshBuilder::GenerateHemisphere("Finger", Color(0.8, 1, 0), 18, 36);
-	meshList[GEO_FINGER]->material.kAmbient.Set(0.6, 0.6, 0.6);
-	meshList[GEO_FINGER]->material.kDiffuse.Set(0.6, 0.6, 0.6);
-	meshList[GEO_FINGER]->material.kSpecular.Set(0.4, 0.4, 0.4);
-	meshList[GEO_FINGER]->material.kShininess = 0.9;
+    meshList[GEO_FINGER]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_FINGER]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_FINGER]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_FINGER]->material.kShininess = 0.78125;
 
-    //*************************************************************************************MTX44 STUFF
+    //**************************************************************************************Eyeball
+    meshList[GEO_EYEBALL] = MeshBuilder::GenerateSphere("Eyeball", Color(1, 1, 1), 18, 36);
+
+    //**************************************************************************************PUPILS
+    meshList[GEO_PUPILS] = MeshBuilder::GenerateCircle("Circle", Color(0, 0, 0), 8);
+
+    //*************************************************************************************Antenna Body
+
+    meshList[GEO_ANTENNA_BODY] = MeshBuilder::GenerateHemisphere("Finger", Color(0.8, 1, 0), 18, 36);
+    meshList[GEO_ANTENNA_BODY]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_ANTENNA_BODY]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_ANTENNA_BODY]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_ANTENNA_BODY]->material.kShininess = 0.78125;
+
+    //*************************************************************************************GUN_HANDLE
+
+    meshList[GEO_GUN_HANDLE] = MeshBuilder::GenerateCylinder("GUN_HANDLE", Color(0.4, 0.4, 0.4), 36, false);
+    meshList[GEO_GUN_HANDLE]->material.kAmbient.Set(0.19225, 0.19225, 0.19225);
+    meshList[GEO_GUN_HANDLE]->material.kDiffuse.Set(0.50754, 0.50754, 0.50754);
+    meshList[GEO_GUN_HANDLE]->material.kSpecular.Set(0.508273, 0.508273, 0.508273);
+    meshList[GEO_GUN_HANDLE]->material.kShininess = 0.4;
+
+    //*************************************************************************************GUN_BODY
+    meshList[GEO_GUN_BODY] = MeshBuilder::GenerateSphere("GUN_BODY", Color(gunBodyColor_B, gunBodyColor_G, gunBodyColor_R), 18, 36);
+    meshList[GEO_GUN_BODY]->material.kAmbient.Set(0.19225, 0.19225, 0.19225);
+    meshList[GEO_GUN_BODY]->material.kDiffuse.Set(0.50754, 0.50754, 0.50754);
+    meshList[GEO_GUN_BODY]->material.kSpecular.Set(0.508273, 0.508273, 0.508273);
+    meshList[GEO_GUN_BODY]->material.kShininess = 0.4;
+    //*************************************************************************************MTX44 applied here
 	Mtx44 projection;
-	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 1000.f);
+	projection.SetToPerspective(450.f, 40.f / 30.f, 1.0f, 10000.f);
 	projectionStack.LoadMatrix(projection);
 
 
@@ -161,6 +192,11 @@ static float SCALE_LIMIT = 5.f;
 void Assignment2::Update(double dt)
 {
 
+        gunBodyColor_B = (rand() % 255 - 0) / 255.0;
+        gunBodyColor_G = (rand() % 255 - 0) / 255.0;
+        gunBodyColor_R = (rand() % 255 - 0) / 255.0;
+        meshList[GEO_GUN_BODY] = MeshBuilder::GenerateSphere("GUN_BODY", Color(gunBodyColor_B, gunBodyColor_G, gunBodyColor_R), 18, 36);
+    
 	if (Application::IsKeyPressed('1')){ //enable back face culling
 		glEnable(GL_CULL_FACE);
 	}
@@ -175,9 +211,18 @@ void Assignment2::Update(double dt)
 	if (Application::IsKeyPressed('4')){
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
 	}
+    if (Application::IsKeyPressed('4')){
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE); //wireframe mode
+    }
 
 	camera.Update(dt);
-
+   // if (Application::IsKeyPressed('5')){
+        
+        camera.up = Vector3(0, translateBody_Y + 2, 0);
+        camera.target = Vector3(translateBody_X, translateBody_Y, translateBody_Z);
+        
+   // }
+   
 	//Light Ball
 	if (Application::IsKeyPressed('I')){
 		light[0].position.z += (float)(LSPEED * dt);
@@ -198,6 +243,56 @@ void Assignment2::Update(double dt)
 		light[0].position.y -= (float)(LSPEED * dt);
 	}
 
+    if (Application::IsKeyPressed('W')){
+        translateBody_Z += (float)(10 * dt);
+        camera.position.z += (float)(1 * dt);
+        if (feetRot_Z)
+        {
+            feetRot_Z -= (float)(10 * dt);
+        }
+        else{
+            if (feetRot_Z <= 0){
+                feetRot_Z += (float)(10 * dt);
+            }
+        }
+        std::cout << "translateBody_Z = " << translateBody_Z << std::endl;
+    }
+    if (Application::IsKeyPressed('A')){
+        translateBody_X += (float)(10 * dt);
+        rotateBodyAngle += (float)(10 * dt);
+        camera.position.x += (float)(5 * dt);
+        std::cout << "translateBody_X =" << translateBody_X << std::endl;
+        std::cout << "rotateBodyAngle = " << rotateBodyAngle << std::endl;
+    }
+    if (Application::IsKeyPressed('S')){
+        translateBody_Z -= (float)(10 * dt);
+        camera.position.z -= (float)(1 * dt);
+        std::cout << "translateBody_Z = " << translateBody_Z << std::endl;
+    }
+
+    if (Application::IsKeyPressed('D')){
+        translateBody_X -= (float)(10 * dt);
+        rotateBodyAngle -= (float)(10 * dt);
+        camera.position.x -= (float)(5 * dt);
+        std::cout <<"translateBody_X =" <<translateBody_X << std::endl;
+        std::cout << "rotateBodyAngle = " << rotateBodyAngle << std::endl;
+    }
+    if (Application::IsKeyPressed('R')){
+        translateBody_X = 0;
+        translateBody_Y = 0;
+        translateBody_Z = 0;
+        rotateBodyAngle = 0;
+        feetRot_Z = 0;
+    }
+
+    else{
+        feetRot_Z = 0;
+    }
+    
+    
+    
+    
+    
 }
 
 void Assignment2::Render()
@@ -211,7 +306,7 @@ void Assignment2::Render()
 
 	viewStack.LookAt(
 		camera.position.x, camera.position.y, camera.position.z,
-		camera.target.x, camera.target.y, camera.target.z,
+		camera.target.x , camera.target.y, camera.target.z,
 		camera.up.x, camera.up.y, camera.up.z
 		);
 
@@ -224,6 +319,12 @@ void Assignment2::Render()
 	Position lightPosition_cameraspace = viewStack.Top() * light[0].position;
 	glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightPosition_cameraspace.x);
 
+    modelStack.PushMatrix();
+    //modelStack.Translate(-translateBody_X, -translateBody_Y, -translateBody_Z);
+    //modelStack.PushMatrix();    
+    modelStack.Rotate(rotateBodyAngle, 0, 1, 0);
+    modelStack.PushMatrix();
+    modelStack.Translate(translateBody_X, translateBody_Y, translateBody_Z);
     //**********************************************************************************************Render Head
 	modelStack.PushMatrix();
 
@@ -233,6 +334,131 @@ void Assignment2::Render()
 	RenderMesh(meshList[GEO_HEAD], true);
 	
 	modelStack.PopMatrix();
+
+    //*******************************************************RENDER EYES
+    
+    //MIDDLE EYE
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(0.f, 29, 3.7);
+    modelStack.Scale(1.5, 1.2, 1.2);
+    RenderMesh(meshList[GEO_EYEBALL], false);
+
+    modelStack.PopMatrix();
+    //MIDDLE EYE PUPIL
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(0.f, 29, 4.9);
+    modelStack.Rotate(90.f, 90, 1, 0);
+    modelStack.Scale(0.6, 0.6, 0.6);
+    RenderMesh(meshList[GEO_PUPILS], false);
+    modelStack.PopMatrix();
+    //RIGHT EYE
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(-3.f, 28.5, 3.7);
+
+    modelStack.Scale(1.5, 1.2, 1.2);
+    RenderMesh(meshList[GEO_EYEBALL], false);
+
+
+    modelStack.PopMatrix();
+    //RIGHT EYE PUPIL
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(-3.f, 28.5, 4.9);
+    modelStack.Rotate(90.f, 90, 1, 0);
+    modelStack.Scale(0.6, 0.6, 0.6);
+    RenderMesh(meshList[GEO_PUPILS], false);
+    modelStack.PopMatrix();
+
+    //LEFT EYE
+    modelStack.PushMatrix();
+
+    modelStack.Translate(3.f, 28.5, 3.7);
+
+    modelStack.Scale(1.5, 1.2, 1.2);
+    RenderMesh(meshList[GEO_EYEBALL], false);
+
+
+    modelStack.PopMatrix();
+    //LEFT EYE PUPIL
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(3.f, 28.5, 4.9);
+    modelStack.Rotate(90.f, 90, 1, 0);
+    modelStack.Scale(0.6, 0.6, 0.6);
+    RenderMesh(meshList[GEO_PUPILS], false);
+    modelStack.PopMatrix();
+    //*******************************************************CLOSE EYES
+    //*******************************************************RENDER ANTENNA
+    modelStack.PushMatrix();
+
+    //******************************BASE
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(0.f, 30.5, 0);
+    modelStack.Rotate(180.f, 0, 0, 1);
+    modelStack.Scale(0.8, 0.8, 0.8);
+    RenderMesh(meshList[GEO_FINGER], true);
+    modelStack.PopMatrix();
+    
+    //Antenna body
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(0.f, 34, 0);
+
+    modelStack.Scale(0.3,5, 0.3);
+    RenderMesh(meshList[GEO_ANTENNA_BODY], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+
+    ////Transformation applied here
+
+    modelStack.Translate(0.f, 34, 0);
+
+    modelStack.Scale(0.6, 0.6, 0.6);
+    RenderMesh(meshList[GEO_HEAD], true);
+    modelStack.PopMatrix();
+    
+    //*******************************************************CLOSE ANTENNA
+    //EAR 1
+    modelStack.PushMatrix();
+
+    ////Transformation stuff
+
+    modelStack.Translate(6.f, 28, 0);
+    modelStack.Rotate(180.f, 0, 0, 1);
+    modelStack.Scale(0.6, 3, 2);
+    RenderMesh(meshList[GEO_FINGER], true);
+    modelStack.PopMatrix();
+
+    //EAR 2
+    modelStack.PushMatrix();
+
+    ////Transformation stuff
+
+    modelStack.Translate(-6.f, 28, 0);
+    modelStack.Rotate(180.f, 0, 0, 1);
+    modelStack.Scale(0.6, 3, 2);
+    RenderMesh(meshList[GEO_FINGER], true);
+    modelStack.PopMatrix();
+
     //**********************************************************************************************Pop Head
 
     //**********************************************************************************************Render Collar
@@ -250,7 +476,7 @@ void Assignment2::Render()
     //**********************************************************************************************Render body
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
 
     modelStack.Translate(5.f, 19, 0);
     modelStack.Rotate(90.f, 0.f, 0.f, 1.f);
@@ -262,7 +488,7 @@ void Assignment2::Render()
     //Body side
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
 
     modelStack.Translate(4.8f, 19, 0);
     modelStack.Rotate(90.f, 0.f, 0.f, 1.f);
@@ -275,7 +501,7 @@ void Assignment2::Render()
     //Body side 2
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
 
     modelStack.Translate(-4.8f, 19, 0);
     modelStack.Rotate(270.f, 0.f, 0.f, 1.f);
@@ -291,7 +517,7 @@ void Assignment2::Render()
 	//****************************************************ARM (upper segment)
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
 
     modelStack.Translate(6.5f, 20, 0);
     modelStack.Rotate(60.f, 40.f, 0.f, 0.f);
@@ -303,7 +529,7 @@ void Assignment2::Render()
     //ARM 2
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
     
     modelStack.Translate(-6.f, 20, 0);
 	modelStack.Rotate(50.f, 0.f, 0.f, 1.f);
@@ -319,7 +545,7 @@ void Assignment2::Render()
 	//RIGHT HAND DE ELBOW
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(6.5f, 21.7f, 3);
 	modelStack.Scale(1.5f, 1.5f, 1.5f);
@@ -332,7 +558,7 @@ void Assignment2::Render()
 	//LEFT HAND DE ELBOW
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(-8.f, 21.7f, 0);
 	modelStack.Scale(1.4f, 1.4f, 1.4f);
@@ -347,7 +573,7 @@ void Assignment2::Render()
 	//****************************************************ARM (lower segment)
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(6.5f, 22., 3.3);
 	modelStack.Rotate(60.f, 40.f, 0.f, 0.f);
@@ -359,7 +585,7 @@ void Assignment2::Render()
 	//ARM 2
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(-8.4f, 22., 0);
 	modelStack.Rotate(50.f, 0.f, 0.f, 1.f);
@@ -433,7 +659,7 @@ void Assignment2::Render()
 
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
     
     modelStack.Translate(2.5f, 9.5, 0);
     modelStack.Scale(3, 6, 3);
@@ -444,7 +670,7 @@ void Assignment2::Render()
 
     modelStack.PushMatrix();
 
-    ////Transformation stuff
+    ////Transformation applied here
 
     modelStack.Translate(-2.5f, 9.5, 0);
     modelStack.Scale(3, 6, 3);
@@ -459,7 +685,7 @@ void Assignment2::Render()
 	//RIGHT HAND DE ELBOW
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(3.f, 8.7f, 0.8);
 	modelStack.Scale(3.f, 2.5f, 4.0f);
@@ -472,7 +698,7 @@ void Assignment2::Render()
 	//LEFT HAND DE ELBOW
 	modelStack.PushMatrix();
 
-	////Transformation stuff
+	////Transformation applied here
 
 	modelStack.Translate(-3.f, 8.7f, 0.8);
 	modelStack.Scale(3.f, 2.5f, 4.0f);
@@ -483,32 +709,55 @@ void Assignment2::Render()
 	modelStack.PopMatrix();
 
 	//**************************************************** close FEET
+    modelStack.PopMatrix();
+    //*********************************************************************************************************************GUN
+    //*********************************************************************GUN_HANDLE
+    modelStack.PushMatrix();
+    modelStack.Translate(6.5, 24, 6);
+    modelStack.Scale(0.8, 3, 0.8);
+    RenderMesh(meshList[GEO_GUN_HANDLE], true);
+    modelStack.PopMatrix();
+    //*********************************************************************CLOSE GUN_HANDLE
+    //*********************************************************************GUN_BODY
+    modelStack.PushMatrix();
+    modelStack.Translate(6.5, 27, 6);
+    modelStack.Scale(1.3, 1.3, 1.3);
+    RenderMesh(meshList[GEO_GUN_BODY], false);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(6.5, 27, 8);
+
+    RenderMesh(meshList[GEO_GUN_BODY], false);
+    modelStack.PopMatrix();
+
+    //*********************************************************************CLOSE GUN_BODY
+    //*********************************************************************************************************************CLOSE GUN
+    modelStack.PopMatrix();
+	//modelStack.PushMatrix();
+
+	////Transformation applied here
+	//RenderMesh(meshList[GEO_AXES], false);
+
+	//modelStack.PopMatrix();
+
+
 	modelStack.PushMatrix();
 
-	//Transformation stuff
-	RenderMesh(meshList[GEO_AXES], false);
-
-	modelStack.PopMatrix();
-
-	RenderMesh(meshList[GEO_AXES], false);
-
-	modelStack.PushMatrix();
-
-	modelStack.Translate(light[0].position.x, light[0].position.y, light[0].position.z);
+	modelStack.Translate(light[0].position.x + 20, light[0].position.y + 20, light[0].position.z);
 	RenderMesh(meshList[GEO_LIGHTBALL], false);
-
 	modelStack.PopMatrix();
 
 	
 
-	//Transformation stuff
+	//Transformation applied here
 
 
 	modelStack.PushMatrix();
-
+    modelStack.Translate(0, 7, 0);
 	modelStack.Scale(200, 0, 200);
 	//to do: transformation code here
-	RenderMesh(meshList[GEO_QUAD], false);
+	RenderMesh(meshList[GEO_ALIENMOON], false);
 
 	modelStack.PopMatrix();
 
