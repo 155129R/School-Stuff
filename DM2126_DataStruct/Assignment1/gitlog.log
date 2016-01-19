@@ -1,0 +1,14 @@
+* 155129R : Sat Dec 12 22:30:03 2015 +0800 : - kinda fixed, it runs now but crashes
+* 155129R : Sat Dec 12 20:27:52 2015 +0800 : - Failed Attempt at fixing 2 errors. GG.
+* 155129R : Sat Dec 12 20:15:03 2015 +0800 : - Edited various function definitions and declarations, mostly for dweller
+* 155129R : Sat Dec 12 00:10:51 2015 +0800 : - Edited constructors to have defaults - Edited Outfit and Weapon such that they had their own respective definitions for receiveDamage method inherited from Item class
+* 155129R : Fri Dec 11 20:26:41 2015 +0800 : - Edited Outfit - Edited Item - Changed Class Vec2D to struct Vec2D (oops)
+* 155129R : Fri Dec 11 17:57:46 2015 +0800 : Edited GameObject.cpp, Item.cpp and included given main.cpp and compileCheck
+* 155129R : Thu Dec 10 21:46:54 2015 +0800 : - Finished comments for headers
+* 155129R : Sun Dec 6 22:26:08 2015 +0800 : -Added Weapon class -Added Outfit class
+* 155129R : Sun Dec 6 21:30:53 2015 +0800 : -Added Item.h
+* 155129R : Sun Dec 6 21:02:10 2015 +0800 : - Edited Dweller.h - Edited GameObject.h - Added Vec2D.h
+* 155129R : Sun Dec 6 12:22:31 2015 +0800 : - Added member Variables to GameObject - Added Dweller Class (incomplete)
+* 155129R : Mon Nov 30 21:32:19 2015 +0800 : - Added GameObject class - Added constructors and destructors to GameObject
+* 155129R : Mon Nov 30 20:53:59 2015 +0800 : - Assignment 1 solution created [30-11-2015, 08:53 PM]
+* Sri Sham Haran : Mon Nov 30 20:35:37 2015 +0800 : Initial commit

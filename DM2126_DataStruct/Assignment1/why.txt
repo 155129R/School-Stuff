@@ -1,0 +1,3 @@
+Referenced to outfit and weapon even when they did not even exist. Didn't think to create a condition to check if they were null or pointing to null.
+
+Did not define default constructor of Vec2D.Realised my approach to special was wrong.
