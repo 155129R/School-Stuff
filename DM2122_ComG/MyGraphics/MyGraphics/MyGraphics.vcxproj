@@ -97,6 +97,7 @@
     <ClCompile Include="Source\Scene3.cpp" />
     <ClCompile Include="Source\Scene4.cpp" />
     <ClCompile Include="source\SceneLight.cpp" />
+    <ClCompile Include="Source\SceneSkybox.cpp" />
     <ClCompile Include="Source\SceneTexture.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="source\Utility.cpp" />
@@ -117,6 +118,7 @@
     <ClInclude Include="Source\Scene3.h" />
     <ClInclude Include="Source\Scene4.h" />
     <ClInclude Include="source\SceneLight.h" />
+    <ClInclude Include="Source\SceneSkybox.h" />
     <ClInclude Include="Source\SceneTexture.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="source\Utility.h" />
