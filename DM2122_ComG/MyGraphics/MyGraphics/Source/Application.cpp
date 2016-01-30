@@ -12,15 +12,13 @@
 #include <stdlib.h>
 
 
-#include "Scene1.h"
-#include "Scene2.h"
-#include "Scene3.h"
-#include "Scene4.h"
 #include "SceneLight.h"
-#include "SceneLight2.h"
-#include "Assignment2.h"
 #include "SceneTexture.h"
 #include "SceneSkybox.h"
+#include "SceneModel.h"
+#include "SceneText.h"
+#include "Assignment3.h"
+
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
@@ -79,7 +77,7 @@ void Application::Init()
 
 
 	//Create a window and create its OpenGL context
-	m_window = glfwCreateWindow(800, 600, "Computer Graphics", NULL, NULL);
+	m_window = glfwCreateWindow(1024, 768, "Computer Graphics", NULL, NULL);
     glfwSetWindowSizeCallback(m_window, resize_callback);
 
 	//If the window couldn't be created
@@ -111,7 +109,7 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new SceneSkybox();
+	Scene *scene = new Assignment3();
 	scene->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame

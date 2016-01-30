@@ -27,7 +27,7 @@ void SceneSkybox::Init()
 	// Init VBO here
 
 	// Set background color to dark blue
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	glClearColor(0.0f, 0.0f, 0.f, 0.0f);
 
 	//Enable depth buffer and depth testing
 	glEnable(GL_DEPTH_TEST);
@@ -98,7 +98,7 @@ void SceneSkybox::Init()
 	rotateAngle = 0;
 
 	//Initialize camera settings
-	camera.Init(Vector3(4, 0, 3), Vector3(0, 0, 0), Vector3(0, 1, 0));
+	camera.Init(Vector3(4, 40, 3), Vector3(0, 40, 0), Vector3(0, 1, 0));
 
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 	meshList[GEO_SPHERE] = MeshBuilder::GenerateSphere("Sphere", (0, 0, 0), 18, 36);
@@ -108,25 +108,25 @@ void SceneSkybox::Init()
 	meshList[GEO_SPHERE]->material.kShininess = 1.0f;
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("LightBall", (1.0f, 1.0f, 1.0f), 18, 36);
 
-	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("quad", Color(1, 1, 1));
+	meshList[GEO_QUAD] = MeshBuilder::GenerateQuad("quad", Color(1, 1, 1),10,10);
 	meshList[GEO_QUAD]->textureID = LoadTGA("Image//mario.tga");
 
-	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1));
+	meshList[GEO_FRONT] = MeshBuilder::GenerateQuad("front", Color(1, 1, 1),10,10);
 	meshList[GEO_FRONT]->textureID = LoadTGA("Image//front.tga");
 
-	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(1, 1, 1));
+	meshList[GEO_LEFT] = MeshBuilder::GenerateQuad("left", Color(1, 1, 1),10,10);
 	meshList[GEO_LEFT]->textureID = LoadTGA("Image//left.tga");
 
-	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1));	
+	meshList[GEO_RIGHT] = MeshBuilder::GenerateQuad("right", Color(1, 1, 1),10,10);	
 	meshList[GEO_RIGHT]->textureID = LoadTGA("Image//right.tga");
 
-	meshList[GEO_BACK] = MeshBuilder::GenerateQuad("back", Color(1, 1, 1));
+	meshList[GEO_BACK] = MeshBuilder::GenerateQuad("back", Color(1, 1, 1),10,10);
 	meshList[GEO_BACK]->textureID = LoadTGA("Image//back.tga");
 
-	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(1, 1, 1));
+	meshList[GEO_BOTTOM] = MeshBuilder::GenerateQuad("bottom", Color(1, 1, 1),10,10);
 	meshList[GEO_BOTTOM]->textureID = LoadTGA("Image//bottom.tga");
 
-	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1));
+	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1),10,10);
 	meshList[GEO_TOP]->textureID = LoadTGA("Image//top.tga");
 
 
@@ -137,9 +137,6 @@ void SceneSkybox::Init()
 
 
 }
-
-static float ROT_LIMIT = 45.f;
-static float SCALE_LIMIT = 5.f;
 
 void SceneSkybox::Update(double dt)
 {
@@ -234,15 +231,6 @@ void SceneSkybox::Render()
 	modelStack.PopMatrix();
 
 
-	modelStack.PushMatrix();
-	modelStack.Translate(0, 2, 0);
-	modelStack.Scale(50, 1, 50);
-	//to do: transformation code here
-	modelStack.PushMatrix();
-	RenderMesh(meshList[GEO_QUAD], false);
-	modelStack.PopMatrix();
-
-	modelStack.PopMatrix();
 
 
 
