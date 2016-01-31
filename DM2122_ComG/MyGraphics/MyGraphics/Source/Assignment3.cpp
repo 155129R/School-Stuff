@@ -144,6 +144,9 @@ void Assignment3::Init()
     meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1), 10, 10);
     meshList[GEO_TOP]->textureID = LoadTGA("Image//top.tga");
 
+    meshList[GEO_BATHBOTTOM] = MeshBuilder::GenerateQuad("bathbottom", Color(1, 1, 1), 10, 10);
+    meshList[GEO_BATHBOTTOM]->textureID = LoadTGA("Image//bathbottom.tga");
+
     meshList[GEO_MODEL1] = MeshBuilder::GenerateOBJ("Chair", "OBJ//lamp.obj");
     meshList[GEO_MODEL1]->textureID = LoadTGA("Image//155129R_Spaceship.tga");
 
@@ -417,5 +420,10 @@ void Assignment3::RenderSkybox()
     modelStack.PopMatrix();
 
     //******************************************************************BATHROOM
-
+    modelStack.PushMatrix();
+    modelStack.Translate(-25,0,-175);
+    modelStack.Scale(150, 0, 150);
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHBOTTOM], false);
+    modelStack.PopMatrix();
 }
