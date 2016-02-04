@@ -15,7 +15,7 @@ struct Material
 	float kShininess;
 	Material()
 	{
-		kAmbient.Set(0.3, 0.3, 0.3);
+		kAmbient.Set(0.6, 0.6, 0.6);
 		kDiffuse.Set(1, 1, 1);
 		kSpecular.Set(1, 1, 1);
 		kShininess = 10.f;

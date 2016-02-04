@@ -88,7 +88,7 @@ void Assignment3::Init()
 
     //Light Object
     light[0].type = Light::LIGHT_SPOT;
-    light[0].position.Set(0, 20, 0);
+    light[0].position.Set(0, 95, 0);
     light[0].color.Set(1, 1, 1);
     light[0].power = 1;
     light[0].kC = 1.f;
@@ -147,14 +147,71 @@ void Assignment3::Init()
     meshList[GEO_BATHBOTTOM] = MeshBuilder::GenerateQuad("bathbottom", Color(1, 1, 1), 10, 10);
     meshList[GEO_BATHBOTTOM]->textureID = LoadTGA("Image//bathbottom.tga");
 
-    meshList[GEO_MODEL1] = MeshBuilder::GenerateOBJ("Chair", "OBJ//lamp.obj");
-    meshList[GEO_MODEL1]->textureID = LoadTGA("Image//155129R_Spaceship.tga");
+    meshList[GEO_BATHFRONT] = MeshBuilder::GenerateQuad("bathfront", Color(1, 1, 1), 10, 10);
+    meshList[GEO_BATHFRONT]->textureID = LoadTGA("Image//bathwall.tga");
+
+    meshList[GEO_BATHRIGHT] = MeshBuilder::GenerateQuad("bathright", Color(1, 1, 1), 10, 10);
+    meshList[GEO_BATHRIGHT]->textureID = LoadTGA("Image//bathwall.tga");
+
+    meshList[GEO_BATHLEFT] = MeshBuilder::GenerateQuad("bathleft", Color(1, 1, 1), 10, 10);
+    meshList[GEO_BATHLEFT]->textureID = LoadTGA("Image//bathwall.tga");
+
+    meshList[GEO_BATHBACK] = MeshBuilder::GenerateQuad("bathback", Color(1, 1, 1), 10, 10);
+    meshList[GEO_BATHBACK]->textureID = LoadTGA("Image//bathwall.tga");
+
+    meshList[GEO_BATHTOP] = MeshBuilder::GenerateQuad("bathback", Color(1, 1, 1), 10, 10);
+
+    meshList[GEO_LAMP] = MeshBuilder::GenerateOBJ("Lamp", "OBJ//lamp.obj");
+    meshList[GEO_LAMP]->textureID = LoadTGA("Image//coke.tga");
+    meshList[GEO_LAMP]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_LAMP]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_LAMP]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_LAMP]->material.kShininess = 0.78125;
+
+    meshList[GEO_DESK] = MeshBuilder::GenerateOBJ("DESK", "OBJ//WorkDesk.obj");
+    meshList[GEO_DESK]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_DESK]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_DESK]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_DESK]->material.kShininess = 0.78125;
+
+    meshList[GEO_CAN] = MeshBuilder::GenerateOBJ("Can", "OBJ//coke.obj");
+    meshList[GEO_CAN]->textureID = LoadTGA("Image//coke.tga");
+    meshList[GEO_CAN]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_CAN]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_CAN]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_CAN]->material.kShininess = 0.78125;
+
+    meshList[GEO_BED] = MeshBuilder::GenerateOBJ("Bed", "OBJ//bed.obj");
+    meshList[GEO_BED]->textureID = LoadTGA("Image//bed.tga");
+    meshList[GEO_BED]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_BED]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_BED]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_BED]->material.kShininess = 0.78125;
+
+    meshList[GEO_MATTRESS] = MeshBuilder::GenerateOBJ("Mattress", "OBJ//mattress.obj");
+    meshList[GEO_MATTRESS]->textureID = LoadTGA("Image//mattress.tga");
+    meshList[GEO_MATTRESS]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_MATTRESS]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_MATTRESS]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_MATTRESS]->material.kShininess = 0.78125;
+
+    //meshList[GEO_CHAR] = MeshBuilder::GenerateOBJ("Char", "OBJ//mattress.obj");
+    //meshList[GEO_CHAR]->textureID = LoadTGA("Image//mattress.tga");
+    //meshList[GEO_CHAR]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    //meshList[GEO_CHAR]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    //meshList[GEO_CHAR]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    //meshList[GEO_CHAR]->material.kShininess = 0.78125;
+
+    meshList[GEO_DESKLAMP] = MeshBuilder::GenerateOBJ("Char", "OBJ//desklamp.obj");
+    meshList[GEO_DESKLAMP]->textureID = LoadTGA("Image//metal.tga");
+    meshList[GEO_DESKLAMP]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_DESKLAMP]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_DESKLAMP]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_DESKLAMP]->material.kShininess = 0.78125;
 
     Mtx44 projection;
-    projection.SetToPerspective(90.f, 4.f / 3.f, 0.1f, 1000.f);
+    projection.SetToPerspective(60.f, (float)(4.f / 3.f), 0.01f, 1000.f);
     projectionStack.LoadMatrix(projection);
-
-
 }
 
 
@@ -199,9 +256,25 @@ void Assignment3::Update(double dt)
         light[0].position.y -= (float)(LSPEED * dt);
     }
 
+    if (Application::IsKeyPressed('E')){
+        if (((camera.position.x <= 70 && camera.position.x >= 50) && (camera.position.z <= 60 && camera.position.z >= 45)) && ((camera.target.x <= 63 && camera.target.x >= 55) && (camera.target.z <= 56.8 && camera.target.z >= 54) && (camera.target.y<=40 && camera.target.y >= 36) )&& canCoke == false)
+        {
+            canCoke = true;
+            
+        }
 
+    }
+    if (Application::IsKeyPressed('U')){
+        if (canCoke == true){
+            canCoke = false;
+            translateCan = 200;
+        }
+    }
 
-
+    if (Application::IsKeyPressed('R')){
+        translateCan = 0;
+        canCoke = false;
+    }
 }
 
 
@@ -277,8 +350,68 @@ void Assignment3::Render()
     modelStack.PushMatrix();
     modelStack.Translate(0, 88, 0);
     modelStack.Scale(1.5f, 1.5f, 1.5f);
-    RenderMesh(meshList[GEO_MODEL1], false);
+    RenderMesh(meshList[GEO_LAMP], true);
 
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(60, 0.1, -80);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(3.f, 3.f, 3.f);
+    RenderMesh(meshList[GEO_BED], true);
+
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(60, 0, -80);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(3.f, 3.f, 3.f);
+    RenderMesh(meshList[GEO_MATTRESS], true);
+
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(60, 0, 80);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(3.f, 3.f, 3.f);
+    RenderMesh(meshList[GEO_DESK], true);
+
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    if (canCoke == false){
+        modelStack.Translate(60, 30, 65);
+        modelStack.Rotate(180, 0, 1, 0);
+        modelStack.Translate(translateCan, translateCan, translateCan);
+        RenderMesh(meshList[GEO_CAN], true);
+    }
+    if (canCoke == true){
+        glDisable(GL_DEPTH_TEST);
+        //Add these code just after glDisable(GL_DEPTH_TEST);
+        Mtx44 ortho;
+        ortho.SetToOrtho(0, 80, 0, 60, -10, 10); //size of screen UI
+        projectionStack.PushMatrix();
+        projectionStack.LoadMatrix(ortho);
+        viewStack.PushMatrix();
+        viewStack.LoadIdentity(); //No need camera for ortho mode
+        modelStack.PushMatrix();
+        modelStack.LoadIdentity(); //Reset modelStack
+        modelStack.Translate(2, -4, 0);
+        modelStack.Rotate(180, 0, 1, 0);
+        modelStack.Scale(5, 5, 5);
+        RenderMesh(meshList[GEO_CAN], true);
+        projectionStack.PopMatrix();
+        viewStack.PopMatrix();
+        modelStack.PopMatrix();
+
+    }
+    glEnable(GL_DEPTH_TEST);
+
+    modelStack.PopMatrix();
+    modelStack.PushMatrix();
+    modelStack.Translate(80, 30, 80);
+    modelStack.Rotate(180, 0, 1, 0);
+    RenderMesh(meshList[GEO_DESKLAMP], true);
     modelStack.PopMatrix();
 
 }
@@ -351,28 +484,28 @@ void Assignment3::RenderSkybox()
 
     modelStack.Translate(-100, 50, 60);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 80);
+    modelStack.Scale(100, 1, 80);
 
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_LEFT], false);
+    RenderMesh(meshList[GEO_LEFT], true);
     modelStack.PopMatrix();
 
     modelStack.PushMatrix();
 
     modelStack.Translate(-100, 50, -40);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 120);
+    modelStack.Scale(100, 1, 120);
 
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_FRONT], false);
+    RenderMesh(meshList[GEO_FRONT], true);
     modelStack.PopMatrix();
     //******************************************TOP
     modelStack.PushMatrix();
     modelStack.Translate(0, 100, 0);
     modelStack.Rotate(180.f, 0, 0, 1);
-    modelStack.Scale(200, 0, 200);
+    modelStack.Scale(200, 1, 200);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_TOP], false);
+    RenderMesh(meshList[GEO_TOP], true);
     modelStack.PopMatrix();
     //******************************************BACK WALL
     modelStack.PushMatrix();
@@ -380,9 +513,9 @@ void Assignment3::RenderSkybox()
     modelStack.Translate(100, 50, 50);
     modelStack.Rotate(180.f, 0, 1, 0);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 100);
+    modelStack.Scale(100, 1, 100);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_BACK], false);
+    RenderMesh(meshList[GEO_BACK], true);
     modelStack.PopMatrix();
 
     modelStack.PushMatrix();
@@ -390,40 +523,103 @@ void Assignment3::RenderSkybox()
     modelStack.Translate(100, 50, -50);
     modelStack.Rotate(180.f, 0, 1, 0);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 100);
+    modelStack.Scale(100, 1, 100);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_LEFT], false);
+    RenderMesh(meshList[GEO_LEFT], true);
     modelStack.PopMatrix();
     //******************************************LEFT WALL
     modelStack.PushMatrix();
     modelStack.Translate(0, 50, 100);
     modelStack.Rotate(90.f, 0, 1, 0);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 200);
+    modelStack.Scale(100, 1, 200);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_LEFT], false);
+    RenderMesh(meshList[GEO_LEFT], true);
     modelStack.PopMatrix();
     //******************************************RIGHT WALL
     modelStack.PushMatrix();
-    modelStack.Translate(30, 50, -100);
+    modelStack.Translate(25, 50, -100);
     modelStack.Rotate(-90.f, 0, 1, 0);
     modelStack.Rotate(-90.f, 0, 0, 1);
-    modelStack.Scale(100, 0, 140);
+    modelStack.Scale(100, 1, 150);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_RIGHT], false);
+    RenderMesh(meshList[GEO_RIGHT], true);
     modelStack.PopMatrix();
     //******************************************BOTTOM
     modelStack.PushMatrix();
-    modelStack.Scale(200, 0, 200);
+    modelStack.Scale(200, 1, 200);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_BOTTOM], false);
+    RenderMesh(meshList[GEO_BOTTOM], true);
     modelStack.PopMatrix();
 
     //******************************************************************BATHROOM
+    //***************************************************BATHBOTTOM
     modelStack.PushMatrix();
     modelStack.Translate(-25,0,-175);
-    modelStack.Scale(150, 0, 150);
+    modelStack.Scale(150, 1, 150);
     //scale, translate, rotate
-    RenderMesh(meshList[GEO_BATHBOTTOM], false);
+    RenderMesh(meshList[GEO_BATHBOTTOM], true);
     modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+
+    modelStack.Translate(-100, 50, -175);
+    modelStack.Rotate(-90.f, 0, 0, 1);
+    modelStack.Scale(100, 1, 150);
+
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHFRONT], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(-25, 50, -250);
+    modelStack.Rotate(-90.f, 0, 1, 0);
+    modelStack.Rotate(-90.f, 0, 0, 1);
+    modelStack.Scale(100, 1, 150);
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHRIGHT], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+
+    modelStack.Translate(50, 50, -175);
+    modelStack.Rotate(180.f, 0, 1, 0);
+    modelStack.Rotate(-90.f, 0, 0, 1);
+    modelStack.Scale(100, 1, 150);
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHBACK], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(25, 50, -100.1);
+    modelStack.Rotate(90.f, 0, 1, 0);
+    modelStack.Rotate(-90.f, 0, 0, 1);
+    modelStack.Scale(100, 1, 150);
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHLEFT], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(-25, 100, -175);
+    modelStack.Rotate(180.f, 0, 0, 1);
+    modelStack.Scale(150, 1, 150);
+    //scale, translate, rotate
+    RenderMesh(meshList[GEO_BATHTOP], true);
+    modelStack.PopMatrix();
+}
+
+void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
+{
+    glDisable(GL_DEPTH_TEST);
+    //Add these code just after glDisable(GL_DEPTH_TEST);
+    Mtx44 ortho;
+    ortho.SetToOrtho(0, 80, 0, 60, -10, 10); //size of screen UI
+    projectionStack.PushMatrix();
+    projectionStack.LoadMatrix(ortho);
+    viewStack.PushMatrix();
+    viewStack.LoadIdentity(); //No need camera for ortho mode
+    modelStack.PushMatrix();
+    modelStack.LoadIdentity(); //Reset modelStack
+    modelStack.Scale(size, size, size);
+    modelStack.Translate(x, y, 0);
 }

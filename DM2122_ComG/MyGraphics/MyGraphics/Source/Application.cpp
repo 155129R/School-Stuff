@@ -54,6 +54,7 @@ Application::~Application()
 
 void resize_callback(GLFWwindow* window, int w, int h)
 {
+    
     glViewport(0, 0, w, h); //update opengl the new window size
 }
 
@@ -77,7 +78,7 @@ void Application::Init()
 
 
 	//Create a window and create its OpenGL context
-	m_window = glfwCreateWindow(1024, 768, "Computer Graphics", NULL, NULL);
+	m_window = glfwCreateWindow(800, 600, "Computer Graphics", NULL, NULL);
     glfwSetWindowSizeCallback(m_window, resize_callback);
 
 	//If the window couldn't be created
@@ -92,7 +93,7 @@ void Application::Init()
 	glfwMakeContextCurrent(m_window);
 
 	//Sets the key callback
-	//glfwSetKeyCallback(m_window, key_callback);
+	glfwSetKeyCallback(m_window, key_callback);
 
 	glewExperimental = true; // Needed for core profile
 	//Initialize GLEW

@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "Mtx44.h"
 #include <iostream>
+
 Camera2::Camera2()
 {
 }
@@ -23,8 +24,44 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 
 void Camera2::Update(double dt)
 {
-	static const float CAMERA_SPEED = 50.f;
+	static const float CAMERA_SPEED = 80.f;
 	static float WALK_SPEED = 30.f;
+    std::cout << "CAMERA target: " << target << std::endl;
+
+    if (Application::IsKeyPressed(VK_UP))
+    {
+        float pitch = (float)(-CAMERA_SPEED * dt);
+        Vector3 view = (target - position).Normalized();
+        Vector3 right = view.Cross(up);
+        right.y = 0;
+        right.Normalize();
+        up = right.Cross(view).Normalized();
+        Mtx44 rotation;
+        if (view.y < 0.93){
+            rotation.SetToRotation(-pitch, right.x, right.y, right.z);
+            view = rotation * view;
+            target = position + view;
+
+        }
+
+    }
+    if (Application::IsKeyPressed(VK_DOWN))
+    {
+        float pitch = (float)(CAMERA_SPEED * dt);
+        Vector3 view = (target - position).Normalized();
+        Vector3 right = view.Cross(up);
+        right.y = 0;
+        right.Normalize();
+        up = right.Cross(view).Normalized();
+        Mtx44 rotation;
+        if (view.y > -0.8){
+            rotation.SetToRotation(-pitch, right.x, right.y, right.z);
+            view = rotation*view;
+            target = position + view;
+        }
+
+
+    }
 
 	if (Application::IsKeyPressed(VK_LEFT))
 	{
@@ -46,40 +83,7 @@ void Camera2::Update(double dt)
 		view = rotation * view;
 		target = position + view;
 	}
-	if (Application::IsKeyPressed(VK_UP))
-	{
-		float pitch = (float)(-CAMERA_SPEED * dt);
-		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
-		right.y = 0;
-		right.Normalize();
-		up = right.Cross(view).Normalized();
-		Mtx44 rotation;
-		if (view.y < 0.93){
-			rotation.SetToRotation(-pitch, right.x, right.y, right.z);
-			view = rotation * view;
-			target = position + view;
-
-		}
-
-	}
-	if (Application::IsKeyPressed(VK_DOWN))
-	{
-		float pitch = (float)(CAMERA_SPEED * dt);
-		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
-		right.y = 0;
-		right.Normalize();
-		up = right.Cross(view).Normalized();
-		Mtx44 rotation;
-		if (view.y > -0.8){
-			rotation.SetToRotation(-pitch, right.x, right.y, right.z);
-			view = rotation*view;
-			target = position + view;
-		}
-
-
-	}
+	
 	if (Application::IsKeyPressed('W'))
 	{
 		Vector3 view = (target - position).Normalized();
@@ -116,7 +120,7 @@ void Camera2::Update(double dt)
     if (Application::IsKeyPressed(VK_LSHIFT))
     {
         std::cout << "Speed changed from " << WALK_SPEED;
-        if (WALK_SPEED < 50)
+        if (WALK_SPEED < 70)
         WALK_SPEED += 5;
         std::cout << " to " << WALK_SPEED << std::endl;
 
@@ -141,11 +145,16 @@ void Camera2::Update(double dt)
     {
         
         flyMode = (flyMode == false) ? true : false;
+        if (flyMode)
+            std::cout << "Fly Mode enabled" << std::endl;
+        else
+            std::cout << "Fly Mode disabled" << std::endl;
     }
 	if (Application::IsKeyPressed('R'))
 	{
 		Reset();
 	}
+
 
 }
 

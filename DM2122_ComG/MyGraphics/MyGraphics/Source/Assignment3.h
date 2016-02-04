@@ -17,15 +17,7 @@ class Assignment3 : public Scene
         GEO_CUBE,
         GEO_CIRCLE,
         GEO_RING,
-        GEO_SPHERE,
-        GEO_PLANETS,
-        GEO_MOONIA,
-        GEO_PLANET1,
-        GEO_MOON1A,
-        GEO_RING1,
         GEO_LIGHTBALL,
-        GEO_MERCURY,
-        GEO_URANUS,
         GEO_HEMISHERE,
         GEO_CONE,
         GEO_LEFT,
@@ -40,12 +32,13 @@ class Assignment3 : public Scene
         GEO_BATHBOTTOM,
         GEO_BATHFRONT,
         GEO_BATHBACK,
-        GEO_MODEL1,
-        GEO_MODEL2,
-        GEO_MODEL3,
-        GEO_MODEL4,
-        GEO_MODEL5,
-        GEO_MODEL6,
+        GEO_LAMP,
+        GEO_CAN,
+        GEO_BED,
+        GEO_MATTRESS,
+        GEO_DESK,
+        GEO_CHAR,
+        GEO_DESKLAMP,
         NUM_GEOMETRY,
     };
     enum UNIFORM_TYPE
@@ -86,7 +79,7 @@ public:
     virtual void Exit();
 private:
     void RenderMesh(Mesh *mesh, bool enablelight);
-
+    void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
     unsigned m_vertexArrayID;
     Mesh *meshList[NUM_GEOMETRY];
 
@@ -94,7 +87,7 @@ private:
     unsigned m_parameters[U_TOTAL];
 
     float LSPEED;
-
+    float translateCan;
     Camera2 camera;
 
     MS modelStack, viewStack, projectionStack;
@@ -102,6 +95,9 @@ private:
     Light light[1];
 
     void RenderSkybox();
+
+    float valueZ;
+    bool canCoke = false;
 };
 
 #endif
