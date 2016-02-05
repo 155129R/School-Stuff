@@ -39,6 +39,9 @@ class Assignment3 : public Scene
         GEO_DESK,
         GEO_CHAR,
         GEO_DESKLAMP,
+        GEO_DOORFRAME,
+        GEO_DOOR,
+        GEO_TOILET,
         NUM_GEOMETRY,
     };
     enum UNIFORM_TYPE
@@ -88,6 +91,8 @@ private:
 
     float LSPEED;
     float translateCan;
+    bool door = false;
+    float rotateDoor;
     Camera2 camera;
 
     MS modelStack, viewStack, projectionStack;
