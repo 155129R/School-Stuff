@@ -42,6 +42,9 @@ class Assignment3 : public Scene
         GEO_DOORFRAME,
         GEO_DOOR,
         GEO_TOILET,
+        GEO_TOILETSEAT,
+        GEO_TOILETWATER,
+        GEO_WATER,
         NUM_GEOMETRY,
     };
     enum UNIFORM_TYPE
@@ -70,6 +73,9 @@ class Assignment3 : public Scene
         U_COLOR_TEXTURE,
         U_TOTAL,
     };
+
+
+
 public:
     Assignment3();
     ~Assignment3();
@@ -83,6 +89,7 @@ public:
 private:
     void RenderMesh(Mesh *mesh, bool enablelight);
     void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
+    
     unsigned m_vertexArrayID;
     Mesh *meshList[NUM_GEOMETRY];
 
@@ -92,7 +99,8 @@ private:
     float LSPEED;
     float translateCan;
     bool door = false;
-    float rotateDoor;
+    bool sleepBed = false;
+    float translateDoor;
     Camera2 camera;
 
     MS modelStack, viewStack, projectionStack;

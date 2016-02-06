@@ -216,13 +216,33 @@ void Assignment3::Init()
     meshList[GEO_DOOR]->material.kSpecular.Set(0.45, 0.55, 0.45);
     meshList[GEO_DOOR]->material.kShininess = 0.78125;
 
-    meshList[GEO_TOILET] = MeshBuilder::GenerateOBJ("Door", "OBJ//toilet.obj");
-    meshList[GEO_TOILET]->textureID = LoadTGA("Image//door.tga");
+    meshList[GEO_TOILET] = MeshBuilder::GenerateOBJ("Toilet", "OBJ//toilet.obj");
+    meshList[GEO_TOILET]->textureID = LoadTGA("Image//toilet.tga");
     meshList[GEO_TOILET]->material.kAmbient.Set(0.6, 0.6, 0.6);
     meshList[GEO_TOILET]->material.kDiffuse.Set(0.1, 0.35, 0.1);
     meshList[GEO_TOILET]->material.kSpecular.Set(0.45, 0.55, 0.45);
     meshList[GEO_TOILET]->material.kShininess = 0.78125;
 
+    meshList[GEO_TOILETWATER] = MeshBuilder::GenerateOBJ("ToiletWater", "OBJ//toiletWater.obj");
+    meshList[GEO_TOILETWATER]->textureID = LoadTGA("Image//water.tga");
+    meshList[GEO_TOILETWATER]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_TOILETWATER]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_TOILETWATER]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_TOILETWATER]->material.kShininess = 0.78125;
+
+    meshList[GEO_TOILETSEAT] = MeshBuilder::GenerateOBJ("ToiletSeat", "OBJ//toiletSeat.obj");
+    meshList[GEO_TOILETSEAT]->textureID = LoadTGA("Image//toilet.tga");
+    meshList[GEO_TOILETSEAT]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_TOILETSEAT]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_TOILETSEAT]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_TOILETSEAT]->material.kShininess = 0.78125;
+
+    meshList[GEO_WATER] = MeshBuilder::GenerateCube("Water", Color(1.f,1.f,1.f));
+    meshList[GEO_WATER]->textureID = LoadTGA("Image//water.tga");
+    meshList[GEO_WATER]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_WATER]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_WATER]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_WATER]->material.kShininess = 0.78125;
 
     Mtx44 projection;
     projection.SetToPerspective(60.f, (float)(4.f / 3.f), 0.01f, 1000.f);
@@ -233,7 +253,7 @@ void Assignment3::Init()
 
 void Assignment3::Update(double dt)
 {
-
+    
     if (Application::IsKeyPressed('1')){ //enable back face culling
         glEnable(GL_CULL_FACE);
     }
@@ -280,7 +300,7 @@ void Assignment3::Update(double dt)
         if ((camera.position.x >= -90 && camera.position.x <= -40) && (camera.position.z >= -87 && camera.position.z <= -50)){
             door = true;
         }
-
+        
     
     }
     if (Application::IsKeyPressed('U')){
@@ -290,20 +310,20 @@ void Assignment3::Update(double dt)
         }
     }
     if (door == true){
-        if (rotateDoor < 90)
-            rotateDoor += (float)(20 * dt);
+        if (translateDoor < 40)
+            translateDoor += (float)(20 * dt);
     }
     if (Application::IsKeyPressed('H')){
         if (light[0].power != 0.f){
             light[0].power = 0.f;
         }
         else
-            light[0].power = 0.8f;
+            light[0].power = 1.f;
         glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
     }
     if (Application::IsKeyPressed('R')){
         translateCan = 0;
-        rotateDoor = 0;
+        translateDoor = 0;
         canCoke = false;
         door = false;
 
@@ -425,18 +445,38 @@ void Assignment3::Render()
 
 
     modelStack.PushMatrix();
-    modelStack.Translate(-75, 0, -100);
-    modelStack.Translate(15.f, 0, 15.f);
-    modelStack.Rotate(-rotateDoor, 0, 1, 0);
-    modelStack.Translate(-15.f, 0, -15.f);
+    modelStack.Translate(-75, 0, -102);
+    modelStack.Translate(translateDoor, 0, 0);
     modelStack.Scale(1.1f, 1.1f, 1);
     RenderMesh(meshList[GEO_DOOR], true);
     modelStack.PopMatrix();
 
     modelStack.PushMatrix();
-    modelStack.Translate(-75, 0, -150);
+    modelStack.Translate(25, 0, -150);
+    modelStack.Rotate(180, 0, 1, 0);
     modelStack.Scale(15.f, 15.f, 15.f);
     RenderMesh(meshList[GEO_TOILET], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(25, 0, -150);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(15.f, 15.f, 14.8f);
+    RenderMesh(meshList[GEO_TOILETWATER], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(25, 0, -150);
+    RenderMesh(meshList[GEO_WATER], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(25, 0, -150);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Translate(10, 40, 0);
+    modelStack.Rotate(90, 0, 0, 1);
+    modelStack.Scale(15.f, 15.f, 15.f);
+    RenderMesh(meshList[GEO_TOILETSEAT], true);
     modelStack.PopMatrix();
 
 
@@ -685,3 +725,4 @@ void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, 
     modelStack.Scale(size, size, size);
     modelStack.Translate(x, y, 0);
 }
+
