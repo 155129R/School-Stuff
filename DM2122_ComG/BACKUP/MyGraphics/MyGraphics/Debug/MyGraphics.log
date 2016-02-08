@@ -1,15 +1,164 @@
-﻿Build started 21/1/2016 12:25:35 PM.
-     1>Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\MyGraphics\MyGraphics.vcxproj" on node 2 (Build target(s)).
+﻿Build started 7/2/2016 6:45:45 PM.
+     1>Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\MyGraphics\MyGraphics.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glew\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glfw\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\Common\Source" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\\glew\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\\glfw\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\\Common\Source" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp Source\Assignment2.cpp Source\Camera.cpp Source\Camera2.cpp Source\LoadTGA.cpp Source\main.cpp Source\Mesh.cpp Source\MeshBuilder.cpp Source\Scene1.cpp Source\Scene2.cpp Source\Scene3.cpp Source\Scene4.cpp source\SceneLight.cpp Source\SceneSkybox.cpp Source\SceneTexture.cpp Source\shader.cpp source\Utility.cpp
+         Utility.cpp
+         shader.cpp
+         SceneTexture.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenetexture.cpp(105): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenetexture.cpp(106): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenetexture.cpp(107): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenetexture.cpp(110): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         SceneSkybox.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\sceneskybox.cpp(104): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         SceneLight.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenelight.cpp(91): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenelight.cpp(92): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenelight.cpp(93): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenelight.cpp(96): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scenelight.cpp(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         Scene4.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(81): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(84): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(87): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(88): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(91): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(94): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(97): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(98): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(101): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(104): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(107): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene4.cpp(348): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         Scene3.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+         Scene2.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene2.cpp(120): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\scene2.cpp(124): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
+         Scene1.cpp
+         MeshBuilder.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\meshbuilder.cpp(284): warning C4018: '<' : signed/unsigned mismatch
+         Mesh.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+         main.cpp
+         LoadTGA.cpp
+         Camera2.cpp
+         Camera.cpp
+         Assignment2.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(108): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(112): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(115): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(116): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(117): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(122): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(123): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(124): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(125): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(129): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(132): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(133): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(134): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(135): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(136): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(140): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(141): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(142): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(143): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(144): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(147): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(148): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(149): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(150): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(151): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(155): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(156): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(157): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(158): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(169): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(170): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(171): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(172): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(177): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(178): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(179): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(180): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(181): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(185): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(186): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(187): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(188): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(196): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(213): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(214): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(215): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(412): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(413): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(422): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(424): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(432): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(434): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(444): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(446): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(453): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(455): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(465): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(467): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(481): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(492): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(502): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(514): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(525): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(548): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(632): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(640): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(650): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(657): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(669): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(676): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(678): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(728): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(793): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\assignment2.cpp(805): warning C4305: 'argument' : truncation from 'double' to 'float'
          Application.cpp
-     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\material.h(42): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(18): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\backup\mygraphics\mygraphics\source\light.h(19): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Debug\MyGraphics.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glew\lib" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glfw\lib-msvc120" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Debug" glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Debug\MyGraphics.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Debug\MyGraphics.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\Debug\MyGraphics.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\\glew\lib" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\\glfw\lib-msvc120" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\Debug" glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\Debug\MyGraphics.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\Debug\MyGraphics.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Assignment2.obj
          Debug\Camera.obj
          Debug\Camera2.obj
@@ -26,9 +175,10 @@
          Debug\SceneTexture.obj
          Debug\shader.obj
          Debug\Utility.obj
-         MyGraphics.vcxproj -> C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Debug\MyGraphics.exe
-     1>Done Building Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\MyGraphics\MyGraphics.vcxproj" (Build target(s)).
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         MyGraphics.vcxproj -> C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\Debug\MyGraphics.exe
+     1>Done Building Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\BACKUP\MyGraphics\MyGraphics\MyGraphics.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.09
+Time Elapsed 00:00:11.20

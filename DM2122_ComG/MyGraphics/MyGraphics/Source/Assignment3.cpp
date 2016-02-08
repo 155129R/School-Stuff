@@ -49,10 +49,7 @@ void Assignment3::Init()
     glBindVertexArray(m_vertexArrayID);
 
     //Shader
-    m_programID = LoadShaders("Shader//Shading.vertexshader", "Shader//LightSource.fragmentshader");
-    m_programID = LoadShaders("Shader//Texture.vertexshader", "Shader//Texture.fragmentshader");
-    m_programID = LoadShaders("Shader//Texture.vertexshader", "Shader//Blending.fragmentshader");
-
+    m_programID = LoadShaders("Shader//Texture.vertexshader", "Shader//Text.fragmentshader");
 
     //Lighting
     m_parameters[U_MVP] = glGetUniformLocation(m_programID, "MVP");
@@ -75,34 +72,64 @@ void Assignment3::Init()
     m_parameters[U_LIGHT0_cosCutOff] = glGetUniformLocation(m_programID, "lights[0].cosCutOff");
     m_parameters[U_LIGHT0_COSINNER] = glGetUniformLocation(m_programID, "lights[0].cosInner");
     m_parameters[U_LIGHT0_EXPONENT] = glGetUniformLocation(m_programID, "lights[0].exponent");
+
+    m_parameters[U_LIGHT1_POSITION] = glGetUniformLocation(m_programID, "lights[1].position_cameraspace");
+    m_parameters[U_LIGHT1_COLOR] = glGetUniformLocation(m_programID, "lights[1].color");
+    m_parameters[U_LIGHT1_POWER] = glGetUniformLocation(m_programID, "lights[1].power");
+    m_parameters[U_LIGHT1_KC] = glGetUniformLocation(m_programID, "lights[1].kC");
+    m_parameters[U_LIGHT1_KL] = glGetUniformLocation(m_programID, "lights[1].kL");
+    m_parameters[U_LIGHT1_KQ] = glGetUniformLocation(m_programID, "lights[1].kQ");
+    m_parameters[U_LIGHTENABLED] = glGetUniformLocation(m_programID, "lightEnabled");
+    m_parameters[U_NUMLIGHTS] = glGetUniformLocation(m_programID, "numLights");
+    m_parameters[U_LIGHT1_TYPE] = glGetUniformLocation(m_programID, "lights[1].type");
+    m_parameters[U_LIGHT1_SPOTDIRECTION] = glGetUniformLocation(m_programID, "lights[1].spotDiection");
+    m_parameters[U_LIGHT1_cosCutOff] = glGetUniformLocation(m_programID, "lights[1].cosCutOff");
+    m_parameters[U_LIGHT1_COSINNER] = glGetUniformLocation(m_programID, "lights[1].cosInner");
+    m_parameters[U_LIGHT1_EXPONENT] = glGetUniformLocation(m_programID, "lights[1].exponent");
+
     m_parameters[U_NUMLIGHTS] = glGetUniformLocation(m_programID, "numLights");
 
     //Texture
     m_parameters[U_COLOR_TEXTURE_ENABLED] = glGetUniformLocation(m_programID, "colorTextureEnabled");
     m_parameters[U_COLOR_TEXTURE] = glGetUniformLocation(m_programID, "colorTexture");
 
+    // Get a handle for our "textColor" uniform
+    m_parameters[U_TEXT_ENABLED] = glGetUniformLocation(m_programID, "textEnabled");
+    m_parameters[U_TEXT_COLOR] = glGetUniformLocation(m_programID, "textColor");
 
     glUseProgram(m_programID);
 
 
 
     //Light Object
-    light[0].type = Light::LIGHT_SPOT;
+    light[0].type = Light::LIGHT_POINT;
     light[0].position.Set(0, 95, 0);
     light[0].color.Set(1, 1, 1);
-    light[0].power = 0.8f;
+    light[0].power = 2.f;
     light[0].kC = 1.f;
     light[0].kL = 0.01f;
     light[0].kQ = 0.001f;
     light[0].cosCutOff = cos(Math::DegreeToRadian(45));
     light[0].cosInner = cos(Math::DegreeToRadian(30));
     light[0].exponent = 3.f;
-    light[0].spotDirection.Set(0.f, 1.f, 0.f);
+    light[0].spotDirection.Set(0.f, -1.f, 0.f);
+
+    light[1].type = Light::LIGHT_SPOT;
+    light[1].position.Set(160, 86, 155);
+    light[1].color.Set(1, 1, 1);
+    light[1].power = 1.f;
+    light[1].kC = 1.f;
+    light[1].kL = 0.01f;
+    light[1].kQ = 0.001f;
+    light[1].cosCutOff = cos(Math::DegreeToRadian(45));
+    light[1].cosInner = cos(Math::DegreeToRadian(30));
+    light[1].exponent = 3.f;
+    light[1].spotDirection.Set(1.f, 1.f, 0.f);
 
 
     // Make sure you pass uniform parameters after glUseProgram
 
-    glUniform1i(m_parameters[U_NUMLIGHTS], 1);
+    glUniform1i(m_parameters[U_NUMLIGHTS], 2);
     glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
     glUniform3fv(m_parameters[U_LIGHT0_COLOR], 1, &light[0].color.r);
     glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
@@ -112,6 +139,16 @@ void Assignment3::Init()
     glUniform1f(m_parameters[U_LIGHT0_cosCutOff], light[0].cosCutOff);
     glUniform1f(m_parameters[U_LIGHT0_COSINNER], light[0].cosInner);
     glUniform1f(m_parameters[U_LIGHT0_EXPONENT], light[0].exponent);
+
+    glUniform1i(m_parameters[U_LIGHT1_TYPE], light[1].type);
+    glUniform3fv(m_parameters[U_LIGHT1_COLOR], 1, &light[1].color.r);
+    glUniform1f(m_parameters[U_LIGHT1_POWER], light[1].power);
+    glUniform1f(m_parameters[U_LIGHT1_KC], light[1].kC);
+    glUniform1f(m_parameters[U_LIGHT1_KL], light[1].kL);
+    glUniform1f(m_parameters[U_LIGHT1_KQ], light[1].kQ);
+    glUniform1f(m_parameters[U_LIGHT1_cosCutOff], light[1].cosCutOff);
+    glUniform1f(m_parameters[U_LIGHT1_COSINNER], light[1].cosInner);
+    glUniform1f(m_parameters[U_LIGHT1_EXPONENT], light[1].exponent);
 
     // Get a handle for our "MVP" uniform
     m_parameters[U_MVP] = glGetUniformLocation(m_programID, "MVP");
@@ -244,6 +281,37 @@ void Assignment3::Init()
     meshList[GEO_WATER]->material.kSpecular.Set(0.45, 0.55, 0.45);
     meshList[GEO_WATER]->material.kShininess = 0.78125;
 
+    meshList[GEO_SINK] = MeshBuilder::GenerateOBJ("Sink", "OBJ//sink.obj");
+    meshList[GEO_SINK]->textureID = LoadTGA("Image//sink.tga");
+    meshList[GEO_SINK]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_SINK]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_SINK]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_SINK]->material.kShininess = 0.78125;
+
+    meshList[GEO_CUP] = MeshBuilder::GenerateOBJ("Cup", "OBJ//Cup.obj");
+    meshList[GEO_CUP]->textureID = LoadTGA("Image//toilet.tga");
+    meshList[GEO_CUP]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_CUP]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_CUP]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_CUP]->material.kShininess = 0.78125;
+
+    meshList[GEO_BOOK] = MeshBuilder::GenerateOBJ("Book", "OBJ//book.obj");
+    meshList[GEO_BOOK]->textureID = LoadTGA("Image//book.tga");
+    meshList[GEO_BOOK]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_BOOK]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_BOOK]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_BOOK]->material.kShininess = 0.78125;
+
+    meshList[GEO_HOLDER] = MeshBuilder::GenerateOBJ("Holder", "OBJ//holder.obj");
+    meshList[GEO_HOLDER]->textureID = LoadTGA("Image//doorFrame.tga");
+    meshList[GEO_HOLDER]->material.kAmbient.Set(0.6, 0.6, 0.6);
+    meshList[GEO_HOLDER]->material.kDiffuse.Set(0.1, 0.35, 0.1);
+    meshList[GEO_HOLDER]->material.kSpecular.Set(0.45, 0.55, 0.45);
+    meshList[GEO_HOLDER]->material.kShininess = 0.78125;
+
+    meshList[GEO_TEXT] = MeshBuilder::GenerateText("Text", 16, 16);
+    meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
+
     Mtx44 projection;
     projection.SetToPerspective(60.f, (float)(4.f / 3.f), 0.01f, 1000.f);
     projectionStack.LoadMatrix(projection);
@@ -292,7 +360,7 @@ void Assignment3::Update(double dt)
     }
 
     if (Application::IsKeyPressed('E')){
-        if (((camera.position.x <= 70 && camera.position.x >= 50) && (camera.position.z <= 60 && camera.position.z >= 45)) && ((camera.target.x <= 63 && camera.target.x >= 55) && (camera.target.z <= 56.8 && camera.target.z >= 54) && (camera.target.y <= 52 && camera.target.y >= 36)) && canCoke == false)
+        if (((camera.position.x <= 86 && camera.position.x >= 56) && (camera.position.z <= 92 && camera.position.z >= 50)) && canCoke == false)
         {
             canCoke = true;
 
@@ -300,33 +368,61 @@ void Assignment3::Update(double dt)
         if ((camera.position.x >= -90 && camera.position.x <= -40) && (camera.position.z >= -87 && camera.position.z <= -50)){
             door = true;
         }
-        
-    
+        if ((camera.position.x >= 15 && camera.position.x <= 100) && (camera.position.z >= -61 && camera.position.z <= -35)){
+            camera.position.x = 70;
+            camera.position.z = -82;
+            camera.position.y -= 20;
+
+            camera.target.x = camera.position.x;
+            camera.target.y = 1000;
+            camera.target.z = camera.position.z;
+
+            camera.up = (5, 1, 1);
+
+            if (light[0].power != 0.f){
+                light[0].power = 0.f;
+            }
+            glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
+
+            sleepBed = true;
+            camera.asleep = true;
+        }
+        if ((camera.position.x >= -100 && camera.position.x <= -55) && (camera.position.z >= -168 && camera.position.z <= -130)){
+            water = true;
+        }
     }
     if (Application::IsKeyPressed('U')){
         if (canCoke == true){
             canCoke = false;
             translateCan = 200;
         }
+        if (sleepBed == true){
+            camera.up = camera.defaultUp;
+            camera.position = Vector3(60.f,50.f,-55.f);
+            camera.target = Vector3(70, 50, -82);
+            sleepBed = false;
+            camera.asleep = false;
+            
+                light[0].power = 1.f;
+            
+            glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
+            
+        }
+       
     }
     if (door == true){
         if (translateDoor < 40)
             translateDoor += (float)(20 * dt);
     }
-    if (Application::IsKeyPressed('H')){
-        if (light[0].power != 0.f){
-            light[0].power = 0.f;
-        }
-        else
-            light[0].power = 1.f;
-        glUniform1f(m_parameters[U_LIGHT0_POWER], light[0].power);
-    }
+
     if (Application::IsKeyPressed('R')){
         translateCan = 0;
         translateDoor = 0;
         canCoke = false;
         door = false;
-
+        camera.asleep = false;
+        sleepBed = false;
+        water = false;
     }
 }
 
@@ -334,6 +430,29 @@ void Assignment3::Update(double dt)
 
 void Assignment3::Render()
 {
+
+    if (light[1].type == Light::LIGHT_DIRECTIONAL){
+
+        Vector3 lightDir1(light[1].position.x, light[1].position.y, light[1].position.z);
+        Vector3 lightDirection_cameraspace1 = viewStack.Top() * lightDir1;
+        glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightDirection_cameraspace1.x);
+
+    }
+    else if (light[1].type == Light::LIGHT_SPOT){
+
+        Position lightPosition_cameraspace1 = viewStack.Top() * light[1].position;
+        glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightPosition_cameraspace1.x);
+
+        Vector3 spotDirection_cameraspace1 = viewStack.Top() * light[1].spotDirection;
+        glUniform3fv(m_parameters[U_LIGHT1_SPOTDIRECTION], 1, &spotDirection_cameraspace1.x);
+
+    }
+    else{
+
+        Position lightPosition_cameraspace1 = viewStack.Top() * light[1].position;
+        glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightPosition_cameraspace1.x);
+
+    }
 
     if (light[0].type == Light::LIGHT_DIRECTIONAL){
 
@@ -357,6 +476,8 @@ void Assignment3::Render()
         glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightPosition_cameraspace.x);
 
     }
+
+    
     // Render VBO here
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -378,25 +499,34 @@ void Assignment3::Render()
     Position lightPosition_cameraspace = viewStack.Top() * light[0].position;
     glUniform3fv(m_parameters[U_LIGHT0_POSITION], 1, &lightPosition_cameraspace.x);
 
+    Position lightPosition_cameraspace1 = viewStack.Top() * light[1].position;
+    glUniform3fv(m_parameters[U_LIGHT1_POSITION], 1, &lightPosition_cameraspace1.x);
+
     modelStack.PushMatrix();
 
     //Transformation stuff
     RenderSkybox();
     modelStack.PopMatrix();
 
-    modelStack.PushMatrix();
+    //modelStack.PushMatrix();
 
-    //Transformation stuff
+    ////Transformation stuff
 
-    modelStack.Translate(0, 1, 0);
-    RenderMesh(meshList[GEO_AXES], false);
+    //modelStack.Translate(0, 1, 0);
+    //RenderMesh(meshList[GEO_AXES], false);
 
-    modelStack.PopMatrix();
+    //modelStack.PopMatrix();
 
 
     modelStack.PushMatrix();
 
     modelStack.Translate(light[0].position.x, light[0].position.y, light[0].position.z);
+    RenderMesh(meshList[GEO_LIGHTBALL], false);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Scale(0.5, 0.5, 0.5);
+    modelStack.Translate(light[1].position.x, light[1].position.y, light[1].position.z);
     RenderMesh(meshList[GEO_LIGHTBALL], false);
     modelStack.PopMatrix();
 
@@ -473,12 +603,61 @@ void Assignment3::Render()
     modelStack.PushMatrix();
     modelStack.Translate(25, 0, -150);
     modelStack.Rotate(180, 0, 1, 0);
-    modelStack.Translate(10, 40, 0);
+    modelStack.Translate(10, 50, 0);
     modelStack.Rotate(90, 0, 0, 1);
     modelStack.Scale(15.f, 15.f, 15.f);
     RenderMesh(meshList[GEO_TOILETSEAT], true);
     modelStack.PopMatrix();
 
+    modelStack.PushMatrix();
+    modelStack.Translate(-85, 0, -150);
+    modelStack.Rotate(90, 0, 1, 0);
+    modelStack.Scale(4.f, 4.f, 4.f);
+    RenderMesh(meshList[GEO_SINK], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(80, 30, 70);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(1.5, 1.5, 1.5);
+    RenderMesh(meshList[GEO_CUP], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(70, 30, 80);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(3, 3, 3);
+    RenderMesh(meshList[GEO_BOOK], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(40, 30, 80);
+    modelStack.Rotate(180, 0, 1, 0);
+    modelStack.Scale(1.5, 1.5, 1.5);
+    RenderMesh(meshList[GEO_HOLDER], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(-88, 36, -150);
+    if (water == true)
+        modelStack.Scale(0.6f, 12.f, 0.6f);
+    if (water == false)
+        modelStack.Scale(0.1f, 0.1f, 0.1f);
+
+    RenderMesh(meshList[GEO_WATER], true);
+    modelStack.PopMatrix();
+
+    modelStack.PushMatrix();
+    modelStack.Translate(-80, 15, -150);
+    if (water == true)
+        modelStack.Scale(10.f, 15.f, 10.f);
+
+    if (water == false)
+        modelStack.Scale(0.1f, 0.1f, 0.1f);
+    RenderMesh(meshList[GEO_TOILETWATER], true);
+    modelStack.PopMatrix();
+
+    RenderTextOnScreen(meshList[GEO_TEXT], "Hello World", Color(0, 1, 0), 100, 20, 20);
 
     if (canCoke == false){
         modelStack.PushMatrix();
@@ -489,7 +668,7 @@ void Assignment3::Render()
         modelStack.PopMatrix();
     }
     if (canCoke == true){
-        modelStack.PushMatrix();
+  
         glDisable(GL_DEPTH_TEST);
         //Add these code just after glDisable(GL_DEPTH_TEST);
         Mtx44 ortho;
@@ -507,14 +686,8 @@ void Assignment3::Render()
         projectionStack.PopMatrix();
         viewStack.PopMatrix();
         modelStack.PopMatrix();
-        modelStack.PopMatrix();
-
+        glEnable(GL_DEPTH_TEST);
     }
-    glEnable(GL_DEPTH_TEST);
-
-
-
-
 
 }
 
@@ -522,6 +695,88 @@ void Assignment3::Exit()
 {
     glDeleteVertexArrays(1, &m_vertexArrayID);
     glDeleteProgram(m_programID);
+}
+
+void Assignment3::RenderText(Mesh* mesh, std::string text, Color color)
+{
+        if (!mesh || mesh->textureID <= 0) //Proper error check
+            return;
+
+        glDisable(GL_DEPTH_TEST);
+
+
+        glUniform1i(m_parameters[U_TEXT_ENABLED], 1);
+        glUniform3fv(m_parameters[U_TEXT_COLOR], 1, &color.r);
+        glUniform1i(m_parameters[U_LIGHTENABLED], 0);
+        glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 1);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, mesh->textureID);
+        glUniform1i(m_parameters[U_COLOR_TEXTURE], 0);
+        for (unsigned i = 0; i < text.length(); ++i)
+        {
+            Mtx44 characterSpacing;
+            characterSpacing.SetToTranslation(i * 1.0f, 0, 0); //1.0f is the spacing of each character, you may change this value
+            Mtx44 MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top() * characterSpacing;
+            glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+            
+            mesh->Render((unsigned)text[i] * 6, 6);
+        }
+        glBindTexture(GL_TEXTURE_2D, 0);
+        glUniform1i(m_parameters[U_TEXT_ENABLED], 0);
+
+
+        glEnable(GL_DEPTH_TEST);
+
+    
+}
+
+
+void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
+{
+    if (!mesh || mesh->textureID <= 0) //Proper error check
+    {
+        return;
+    }
+
+    glDisable(GL_DEPTH_TEST);
+
+    //Add these code just after glDisable(GL_DEPTH_TEST);
+    Mtx44 ortho;
+    ortho.SetToOrtho(0, 80, 0, 60, -10, 10); //size of screen UI
+    projectionStack.PushMatrix();
+    projectionStack.LoadMatrix(ortho);
+    viewStack.PushMatrix();
+    viewStack.LoadIdentity(); //No need camera for ortho mode
+    modelStack.PushMatrix();
+    modelStack.LoadIdentity(); //Reset modelStack
+    modelStack.Scale(size, size, size);
+    modelStack.Translate(x, y, 0);
+
+    glUniform1i(m_parameters[U_TEXT_ENABLED], 1);
+    glUniform3fv(m_parameters[U_TEXT_COLOR], 1, &color.r);
+    glUniform1i(m_parameters[U_LIGHTENABLED], 0);
+    glUniform1i(m_parameters[U_COLOR_TEXTURE_ENABLED], 1);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, mesh->textureID);
+    glUniform1i(m_parameters[U_COLOR_TEXTURE], 0);
+    for (unsigned i = 0; i < text.length(); ++i)
+    {
+        Mtx44 characterSpacing;
+        characterSpacing.SetToTranslation(i * 1.0f, 0, 0); //1.0f is the spacing of each character, you may change this value
+        Mtx44 MVP = projectionStack.Top()* viewStack.Top() *modelStack.Top() * characterSpacing;
+        glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
+
+        mesh->Render((unsigned)text[i] * 6, 6);
+    }
+    glBindTexture(GL_TEXTURE_2D, 0);
+    glUniform1i(m_parameters[U_TEXT_ENABLED], 0);
+
+    //Add these code just before glEnable(GL_DEPTH_TEST);
+    projectionStack.PopMatrix();
+    viewStack.PopMatrix();
+    modelStack.PopMatrix();
+
+    glEnable(GL_DEPTH_TEST);
 }
 
 
@@ -708,21 +963,5 @@ void Assignment3::RenderSkybox()
     //scale, translate, rotate
     RenderMesh(meshList[GEO_BATHTOP], true);
     modelStack.PopMatrix();
-}
-
-void Assignment3::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y)
-{
-    glDisable(GL_DEPTH_TEST);
-    //Add these code just after glDisable(GL_DEPTH_TEST);
-    Mtx44 ortho;
-    ortho.SetToOrtho(0, 80, 0, 60, -10, 10); //size of screen UI
-    projectionStack.PushMatrix();
-    projectionStack.LoadMatrix(ortho);
-    viewStack.PushMatrix();
-    viewStack.LoadIdentity(); //No need camera for ortho mode
-    modelStack.PushMatrix();
-    modelStack.LoadIdentity(); //Reset modelStack
-    modelStack.Scale(size, size, size);
-    modelStack.Translate(x, y, 0);
 }
 
