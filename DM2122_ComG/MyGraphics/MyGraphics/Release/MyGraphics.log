@@ -1,8 +1,64 @@
-﻿Build started 7/2/2016 7:11:09 PM.
+﻿Build started 14/2/2016 6:45:40 PM.
      1>Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\MyGraphics\MyGraphics.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glew\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glfw\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\Common\Source" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Camera2.cpp
-         Camera2.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glew\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glfw\include" /I"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\Common\Source" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Assignment3.cpp
+         Assignment3.cpp
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\Material.h(18): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\Material.h(20): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\sri\desktop\school-stuff\dm2122_comg\mygraphics\mygraphics\source\Light.h(25): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(164): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Source\Assignment3.cpp(203): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(204): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(205): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(209): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(210): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(211): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(216): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(217): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(218): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(223): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(224): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(225): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(230): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(231): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(232): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(237): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(238): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(239): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(244): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(245): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(246): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(251): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(252): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(253): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(258): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(259): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(260): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(265): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(266): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(267): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(272): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(273): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(274): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(279): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(280): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(281): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(286): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(287): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(288): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(293): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(294): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(295): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(300): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(301): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(307): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(308): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(309): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(319): warning C4551: function call missing argument list
+     1>Source\Assignment3.cpp(387): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>Source\Assignment3.cpp(549): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>Source\Assignment3.cpp(959): warning C4305: 'argument' : truncation from 'double' to 'float'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release\MyGraphics.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glew\lib" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\\glfw\lib-msvc120" /LIBPATH:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release" glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release\MyGraphics.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release\MyGraphics.lib" /MACHINE:X86 /SAFESEH Release\Application.obj
          Release\Assignment3.obj
@@ -28,4 +84,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.14
+Time Elapsed 00:00:02.28

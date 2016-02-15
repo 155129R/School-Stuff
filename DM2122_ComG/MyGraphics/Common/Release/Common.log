@@ -1,13 +1,9 @@
-﻿Build started 7/2/2016 7:11:09 PM.
+﻿Build started 14/2/2016 6:45:40 PM.
      1>Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Common\Common.vcxproj" on node 2 (Build target(s)).
      1>Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release\Common.lib" /NOLOGO /LTCG Release\MatrixStack.obj
-         Release\Mtx44.obj
-         Release\timer.obj
-         Release\Vector3.obj
          Common.vcxproj -> C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Release\Common.lib
      1>Done Building Project "C:\Users\Sri\Desktop\School-Stuff\DM2122_ComG\MyGraphics\Common\Common.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.36
+Time Elapsed 00:00:00.04

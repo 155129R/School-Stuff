@@ -315,6 +315,12 @@ void Assignment3::Init()
     Mtx44 projection;
     projection.SetToPerspective(60.f, (float)(4.f / 3.f), 0.01f, 1000.f);
     projectionStack.LoadMatrix(projection);
+
+    SetWindowLong;
+    
+
+    PlaySound(TEXT("Arcadia.wav"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP | SND_SYNC);
+
 }
 
 
@@ -359,6 +365,7 @@ void Assignment3::Update(double dt)
         light[0].position.y -= (float)(LSPEED * dt);
     }
 
+    
     if (Application::IsKeyPressed('E')){
         if (((camera.position.x <= 86 && camera.position.x >= 56) && (camera.position.z <= 92 && camera.position.z >= 50)) && canCoke == false)
         {
@@ -392,6 +399,7 @@ void Assignment3::Update(double dt)
         }
     }
     if (Application::IsKeyPressed('U')){
+        
         if (canCoke == true){
             canCoke = false;
             translateCan = 200;
